@@ -1,0 +1,7 @@
+target/
+.idea/
+.vscode/
+.env
+*.iml
+validacao-tts.mp3
+docs/exemplos Audio/

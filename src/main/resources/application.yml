@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: transcreve-despesas
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/transcreve_despesas}
+    username: ${DB_USER:transcreve}
+    password: ${DB_PASSWORD:transcreve}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+  ai:
+    retry:
+      max-attempts: 3
+      backoff:
+        initial-interval: 1s
+        multiplier: 2
+        max-interval: 4s
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.2
+      audio:
+        transcription:
+          options:
+            model: whisper-1
+            language: pt
+            response-format: text
+        speech:
+          options:
+            model: gpt-4o-mini-tts
+            voice: nova
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  jwt:
+    secret-base64: ${JWT_SECRET_BASE64:MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:60}
