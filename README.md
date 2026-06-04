@@ -627,6 +627,6 @@ A sintese depende de `https://api.openai.com/v1/audio/speech`. A aplicacao limit
 
 Confirme que executou `POST /auth/login` e incluiu `Authorization: Bearer TOKEN` na chamada. Tokens expiram apos `JWT_EXPIRATION_MINUTES`, com padrao de `60` minutos.
 
-## Documentacao tecnica
+## Documentação técnica
 
 Consulte [docs/RELATORIO_TECNICO.md](docs/RELATORIO_TECNICO.md) para arquitetura, decisoes e evidencias da validacao integrada.
